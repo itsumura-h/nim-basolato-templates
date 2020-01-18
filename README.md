@@ -17,6 +17,8 @@ This repository is project boilerplate templates
 │   ├── migrate.nim
 │   └── migration0001.nim
 ├── public
+│   ├── css
+│   └── js
 └── resources
     └── framework
         └── error.nim
@@ -27,3 +29,5 @@ create manually
 - app/controllers/
 - app/models/
 - public/
+- public/js/
+- public/css/
