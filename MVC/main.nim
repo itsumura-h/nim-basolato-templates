@@ -4,7 +4,7 @@ import basolato/routing
 import middleware/custom_headers_middleware
 import middleware/framework_middleware
 # controller
-import basolato/sample/controllers/SampleController
+import basolato/sample/controllers/sample_controller
 
 routes:
   # Framework
@@ -16,6 +16,6 @@ routes:
     framework
 
   get "/":
-    route(SampleController.index(), [corsHeader(), secureHeader()])
+    route(newSampleController(request).index(),[corsHeader(), secureHeader()])
 
 runForever()
