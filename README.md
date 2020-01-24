@@ -20,8 +20,6 @@ This repository is project boilerplate templates
 │   ├── css
 │   └── js
 └── resources
-    └── framework
-        └── error.nim
 ```
 create manually
 - config.nims
@@ -31,3 +29,4 @@ create manually
 - public/
 - public/js/
 - public/css/
+- resources
