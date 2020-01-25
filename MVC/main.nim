@@ -8,12 +8,9 @@ import basolato/sample/controllers/sample_controller
 
 routes:
   # Framework
-  error Http404:
-    http404Route
-  error Exception:
-    exceptionRoute
-  before:
-    framework
+  error Http404: http404Route
+  error Exception: exceptionRoute
+  before: framework
 
   get "/":
     route(newSampleController(request).index(),[corsHeader(), secureHeader()])
