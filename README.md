@@ -29,4 +29,4 @@ create manually
 - public/
 - public/js/
 - public/css/
-- resources
+- resources/
