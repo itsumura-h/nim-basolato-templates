@@ -10,7 +10,7 @@ This repository is project boilerplate templates
 │   └── models
 ├── config.nims
 ├── main.nim
-├── middleware
+├── middlewares
 │   ├── custom_headers_middleware.nim
 │   └── framework_middleware.nim
 ├── migrations
