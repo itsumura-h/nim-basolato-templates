@@ -1,8 +1,8 @@
 # framework
 import basolato/routing
 # middleware
-import middleware/custom_headers_middleware
-import middleware/framework_middleware
+import middlewares/custom_headers_middleware
+import middlewares/framework_middleware
 # controller
 import basolato/welcome_page/controllers/welcome_controller
 
