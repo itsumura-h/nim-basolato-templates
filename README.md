@@ -3,30 +3,28 @@ Basolato Framework templates
 
 This repository is project boilerplate templates
 
-## MVC
 ```
 ├── app
+│   ├── active_records
+│   │   └── rdb.nim
 │   ├── controllers
-│   └── models
-├── config.nims
+│   ├── domain
+│   │   ├── models
+│   │   │   └── value_objects.nim
+│   │   └── usecases
+│   └── middlewares
+│       ├── README.md
+│       ├── custom_headers_middleware.nim
+│       └── framework_middleware.nim
 ├── main.nim
-├── middlewares
-│   ├── custom_headers_middleware.nim
-│   └── framework_middleware.nim
 ├── migrations
 │   ├── migrate.nim
 │   └── migration0001.nim
 ├── public
-│   ├── css
-│   └── js
 └── resources
 ```
 create manually
 - config.nims
-- app/
-- app/controllers/
-- app/models/
-- public/
+- tests
 - public/js/
 - public/css/
-- resources/
