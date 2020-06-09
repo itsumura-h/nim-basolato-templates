@@ -3,7 +3,7 @@ import basolato/middleware
 
 
 proc corsHeader*(): Headers =
-  var allowedMethods = @[
+  let allowedMethods = [
     "OPTIONS",
     "GET",
     "POST",
@@ -11,7 +11,7 @@ proc corsHeader*(): Headers =
     "DELETE"
   ]
 
-  var allowedHeaders = @[
+  let allowedHeaders = [
     "X-login-id",
     "X-login-token"
   ]
