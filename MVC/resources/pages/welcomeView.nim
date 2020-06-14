@@ -95,6 +95,6 @@ proc impl(name:string):string = tmpli html"""
 </article>
 """
 
-proc welcomeHtml*(this:View, name:string):string =
+proc welcomeView*(this:View, name:string):string =
   let title = "Welcome"
-  return this.applicationHtml(title, impl(name))
+  return this.applicationView(title, impl(name))

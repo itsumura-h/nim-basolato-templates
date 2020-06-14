@@ -1,7 +1,7 @@
 # framework
 import basolato/controller
 # view
-import ../../resources/pages/welcomeHtml
+import ../../resources/pages/welcomeView
 
 
 type WelcomeController* = ref object of Controller
@@ -12,4 +12,4 @@ proc newWelcomeController*(request:Request):WelcomeController =
 
 proc index*(this:WelcomeController):Response =
   let name = "Basolato " & basolatoVersion
-  return render(this.view.welcomeHtml(name))
+  return render(this.view.welcomeView(name))
