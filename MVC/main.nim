@@ -4,7 +4,7 @@ import basolato/routing
 import app/middlewares/custom_headers_middleware
 import app/middlewares/framework_middleware
 # controller
-import basolato/welcome_page/controllers/welcome_controller
+import app/controllers/welcome_controller
 
 routes:
   # Framework
