@@ -1,7 +1,7 @@
 # framework
 import basolato/controller
 # view
-import ../../resources/pages/welcomeView
+import ../../resources/pages/welcome_view
 
 
 type WelcomeController* = ref object of Controller
