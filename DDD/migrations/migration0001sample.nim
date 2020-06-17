@@ -2,7 +2,7 @@ import json, strformat
 import allographer/schema_builder
 import allographer/query_builder
 
-proc migration0001*() =
+proc migration0001sample*() =
   # Create table schema
   schema([
     table("sample_users", [
