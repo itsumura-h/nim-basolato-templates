@@ -1,0 +1,10 @@
+# Binaries
+*
+!*.*
+!*/
+
+# Test coverage
+coverage/*
+lcov.info
+
+config.nims
