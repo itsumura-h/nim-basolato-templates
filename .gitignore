@@ -1,1 +1,6 @@
 .DS_Store
+*.sqlite3
+*.db
+*.db.*
+config.nims
+logs/*
