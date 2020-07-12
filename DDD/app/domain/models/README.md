@@ -22,6 +22,8 @@ proc get*(this:UserName):string =
 ```
 
 ## Usase
+Usecase create instance of `Value Object`, `Entity` and `Service` and call these methods to realize bussiness logic.
+
 ```nim
 let userName = newUserName("") # Error raised
 let userName = newUserName("abcdefghij") # Error raised
@@ -31,10 +33,25 @@ echo username.get() # >> "John"
 
 ---
 
+Di Container
+===
+Di Container provide Repository Impl for Repository Interface.　Passing the dependency of the Repository to the Service through the Di Container prevents the Service and Repository from becoming tightly coupled.
+
+```nim
+import user/repositories/user_rdb_repository
+import user/repositories/user_json_repository
+
+type DiContainer* = tuple
+  userRepository: UserRdbRepository
+  # userRepository: UserJsonRepository
+```
+
+---
+
 Domain Model
 ===
 
-Domain model consists `Entity`, `Service` , `Repository` and `Repository impl`.
+Domain model consists `Entity`, `Service` , `RepositoryInterface` and `Repository impl`.
 
 ```
 ├── user
@@ -98,20 +115,36 @@ proc newUser*(email:Email, password:Password):User =
   )
 ```
 
+## Repository Interface
+The Repository Interface prevents the Repository knowledge from leaking to Service by executing the Repository's methods through the Di Container.
+
+```nim
+type IUserRepository* = ref object
+
+proc newIUserRepository*():IUserRepository =
+  return IUserRepository()
+
+proc find*(this:IUserRepository, email:Email):Option[User] =
+  return DiContainer.userRepository().find(email)
+
+proc save*(this:IUserRepository, user:User):int =
+  return DiContainer.userRepository().save(user)
+```
+
 ## Repository
 Repository is a functions to access database or file.
 
 ```nim
-type UserRepository* = ref object
+type UserRdbRepository* = ref object
 
-proc newUserRepository*():UserRepository =
-  return UserRepository()
+proc newUserRdbRepository*():UserRdbRepository =
+  return UserRdbRepository()
 
 
-proc show*(this:UserRepository, user:User):JsonNode =
+proc show*(this:UserRdbRepository, user:User):JsonNode =
   return newUser().find(user.getId)
 
-proc store*(this:UserRepository, user:User):int =
+proc store*(this:UserRdbRepository, user:User):int =
   newUser().insertID(%*{
     "name": user.getName(),
     "email": user.getEmail(),
