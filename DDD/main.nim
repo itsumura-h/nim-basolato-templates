@@ -14,3 +14,12 @@ routes:
 
   get "/":
     route(newWelcomeController(request).index(),[corsHeader(), secureHeader()])
+
+# proc main() =
+#   let port = 5000.Port
+#   let settings = newSettings(port=port)
+#   var jester = initJester(main_router, settings=settings)
+#   jester.serve()
+
+# when isMainModule:
+#   main()
