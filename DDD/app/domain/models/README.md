@@ -3,7 +3,6 @@ Value object
 
 Value object difines a behaviour of value.
 
-## Example
 ```nim
 type UserName* = ref object
   value:string
@@ -21,7 +20,11 @@ proc get*(this:UserName):string =
   return this.value
 ```
 
-## Usase
+---
+
+Usase
+===
+
 Usecase create instance of `Value Object`, `Entity` and `Service` and call these methods to realize bussiness logic.
 
 ```nim
@@ -46,12 +49,15 @@ type DiContainer* = tuple
   # userRepository: UserJsonRepository
 ```
 
+In this example, `Repository Interface` call `UserRdbRepository` by resolving as `userRepository`.
+
 ---
 
 Domain Model
 ===
 
-Domain model consists `Entity`, `Service` , `RepositoryInterface` and `Repository impl`.
+Domain model consists `Entity`, `Service` , `RepositoryInterface` and `Repository`.  
+You can create domain model by command `ducere make model {domain name}`
 
 ```
 ├── user
@@ -119,6 +125,8 @@ proc newUser*(email:Email, password:Password):User =
 The Repository Interface prevents the Repository knowledge from leaking to Service by executing the Repository's methods through the Di Container.
 
 ```nim
+include ../di_container
+
 type IUserRepository* = ref object
 
 proc newIUserRepository*():IUserRepository =
@@ -132,7 +140,7 @@ proc save*(this:IUserRepository, user:User):int =
 ```
 
 ## Repository
-Repository is a functions to access database or file.
+Repository is a functions to access database, file or extrnal web API.
 
 ```nim
 type UserRdbRepository* = ref object
