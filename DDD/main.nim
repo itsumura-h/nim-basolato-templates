@@ -6,6 +6,9 @@ import app/middlewares/framework_middleware
 # controller
 import app/controllers/welcome_controller
 
+settings:
+  port = Port(5000)
+
 routes:
   # Framework
   error Http404: http404Route
@@ -14,12 +17,3 @@ routes:
 
   get "/":
     route(newWelcomeController(request).index(),[corsHeader(), secureHeader()])
-
-# proc main() =
-#   let port = 5000.Port
-#   let settings = newSettings(port=port)
-#   var jester = initJester(main_router, settings=settings)
-#   jester.serve()
-
-# when isMainModule:
-#   main()
