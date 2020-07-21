@@ -9,4 +9,5 @@ lcov.info
 
 *.sqlite3
 *.db
+*.db.bak
 config.nims
