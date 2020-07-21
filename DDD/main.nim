@@ -15,5 +15,4 @@ routes:
   error Exception: exceptionRoute
   before: framework
 
-  get "/":
-    route(newWelcomeController(request).index(),[corsHeader(), secureHeader()])
+  get "/": route(newWelcomeController(request).index(),[corsHeader(), secureHeader()])

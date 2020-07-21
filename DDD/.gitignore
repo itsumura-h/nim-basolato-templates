@@ -11,3 +11,4 @@ lcov.info
 *.db
 *.db.bak
 config.nims
+logs/*
