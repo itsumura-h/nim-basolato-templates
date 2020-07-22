@@ -10,5 +10,5 @@ lcov.info
 *.sqlite3
 *.db
 *.db.bak
+*.log
 config.nims
-logs/*
