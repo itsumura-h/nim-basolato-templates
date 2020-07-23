@@ -4,6 +4,8 @@ Basolato Framework templates
 This repository is project boilerplate templates
 
 ```
+├── .env
+├── .gitignore
 ├── app
 │   ├── controllers
 │   │   ├── README.md
@@ -20,7 +22,6 @@ This repository is project boilerplate templates
 │       ├── custom_headers_middleware.nim
 │       └── framework_middleware.nim
 ├── config.nims
-├── .env
 ├── main.nim
 ├── migrations
 │   ├── README.md
@@ -39,7 +40,8 @@ This repository is project boilerplate templates
 │   │   └── head.nim
 │   └── pages
 │       └── welcome_view.nim
-├── test.nimble
+├── session.db
+├── {project_name}.nimble
 └── tests
 ```
 create manually
