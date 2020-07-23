@@ -6,5 +6,4 @@ proc headView*(title:string):string = tmpli html"""
   <meta charset="UTF-8">
   <title>$title</title>
 </head>
-
 """

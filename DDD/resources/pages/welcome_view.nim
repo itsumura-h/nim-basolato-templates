@@ -88,9 +88,15 @@ proc impl(name:string):string = tmpli html"""
     <p class="whiteFont">
       <i>—utilitas, firmitas et venustas (utility, strength and beauty)— by De architectura / Marcus Vitruvius Pollio</i>
     </p>
-    <p class="whiteFont">
-      Develop as easy as Ruby on Rais, Stably as Laravel, Run faster and lighter than every other full-skack web framework.
-    </p>
+    <div class="whiteFont">
+      <ul>
+        <li>Easy syntax as Python thanks to Nim</li>
+        <li>Develop as easy as Ruby on Rais</li>
+        <li>Stably structure as Symfony(PHP)</li>
+        <li>Including easy query builder as Laravel(PHP)</li>
+        <li>Run faster and lighter than every other full-skack web framework</li>
+      </ul>
+    </div>
   </section>
 </article>
 """
