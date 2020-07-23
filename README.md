@@ -20,6 +20,7 @@ This repository is project boilerplate templates
 │       ├── custom_headers_middleware.nim
 │       └── framework_middleware.nim
 ├── config.nims
+├── .env
 ├── main.nim
 ├── migrations
 │   ├── README.md
@@ -42,7 +43,7 @@ This repository is project boilerplate templates
 └── tests
 ```
 create manually
-- config.nims
+- .env
 - tests
 - public/js/
 - public/css/
