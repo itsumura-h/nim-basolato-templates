@@ -44,7 +44,7 @@ This repository is project boilerplate templates
 └── tests
 ```
 create manually
-- .env
+- config.nims
 - tests
 - public/js/
 - public/css/
