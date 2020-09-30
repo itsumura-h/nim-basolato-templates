@@ -35,8 +35,8 @@ This repository is project boilerplate templates
 ├── resources
 │   ├── README.md
 │   ├── layouts
-│   │   ├── application.nim
-│   │   └── head.nim
+│   │   ├── application_view.nim
+│   │   └── head_view.nim
 │   └── pages
 │       └── welcome_view.nim
 ├── session.db

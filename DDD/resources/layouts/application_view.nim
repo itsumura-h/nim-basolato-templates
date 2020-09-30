@@ -1,5 +1,5 @@
 import basolato/view
-import head
+import head_view
 
 proc applicationView*(this:View, title:string, body:string):string = tmpli html"""
 <!DOCTYPE html>
