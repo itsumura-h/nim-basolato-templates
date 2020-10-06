@@ -1,5 +1,5 @@
 import basolato/view
-import ../layouts/application
+import ../layouts/application_view
 
 proc impl(title, name:string):string = tmpli html"""
 <!DOCTYPE html>
