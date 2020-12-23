@@ -6,8 +6,7 @@ This design is based on [Command–query_separation](https://en.wikipedia.org/wi
 
 `Repository` is created in correspondence with the `aggregation`. However, `query service` is independent of aggregation and includes all data acquisition processes.
 
-## sample
-### Usecase
+## Usecase
 ```nim
 import json
 import ../models/value_objects
@@ -30,7 +29,7 @@ proc show*(this:PostUsecase, id:int):JsonNode =
   return this.queryService.getPost(postId)
 ```
 
-### Query service interface
+## Query service interface
 ```nim
 import json
 # include ../di_container
@@ -50,7 +49,7 @@ proc getPost*(this:IQueryService, postId:PostId):JsonNode =
   return this.ctx.getPost(postId)
 ```
 
-### Query service
+## Query service
 ```nim
 import json
 import allographer/query_builder
