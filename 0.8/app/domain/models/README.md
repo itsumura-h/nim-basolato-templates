@@ -122,7 +122,7 @@ proc newUser*(email:Email, password:Password):User =
 ```
 
 ## Repository Interface
-The Repository Interface prevents the Repository knowledge from leaking to Service by executing the Repository's methods through the Di Container.
+The Repository Interface prevents the Repository knowledge from leaking to application layer by executing the Repository's methods through the Di Container.
 
 ```nim
 include ../di_container
@@ -132,15 +132,14 @@ type IUserRepository* = ref object
 proc newIUserRepository*():IUserRepository =
   return IUserRepository()
 
-proc find*(this:IUserRepository, email:Email):Option[User] =
-  return DiContainer.userRepository().find(email)
-
-proc save*(this:IUserRepository, user:User):int =
-  return DiContainer.userRepository().save(user)
+proc saveUser*(this:IUserRepository, user:User):int =
+  return DiContainer.userRepository().saveUser(user)
 ```
 
 ## Repository
-Repository is a functions to access database, file or extrnal web API.
+Repository is a functions to `insert`, `update` and `delete` database, file or extrnal web API.  
+To fetch data, You should use not `repository` but `query service`.
+`Repository` should be created in correspondence with the `aggregation`.
 
 ```nim
 type UserRdbRepository* = ref object
@@ -148,11 +147,7 @@ type UserRdbRepository* = ref object
 proc newUserRdbRepository*():UserRdbRepository =
   return UserRdbRepository()
 
-
-proc show*(this:UserRdbRepository, user:User):JsonNode =
-  return newUser().find(user.getId)
-
-proc store*(this:UserRdbRepository, user:User):int =
+proc saveUser*(this:UserRdbRepository, user:User):int =
   newUser().insertID(%*{
     "name": user.getName(),
     "email": user.getEmail(),
