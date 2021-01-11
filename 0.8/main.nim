@@ -5,6 +5,7 @@ import basolato
 import app/controllers/welcome_controller
 # middleware
 import app/middlewares/auth_middleware
+import app/middlewares/cors_middleware
 
 var routes = newRoutes()
 routes.middleware(re".*", auth_middleware.checkCsrfTokenMiddleware)
