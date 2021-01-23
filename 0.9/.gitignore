@@ -7,8 +7,13 @@
 coverage/*
 lcov.info
 
+# IDE
+.vscode/*
+
 config.nims
+*.out
 *.log
+*.log.*
 *.sqlite3
 *.db
-*.db.bak
+*.db.*
