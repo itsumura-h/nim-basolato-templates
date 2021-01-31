@@ -1,4 +1,13 @@
-import ../../repositories/query_services/rdb_query_service
+# query service
+import ../http/query_service_interface
+import ../repositories/query_services/query_service
 
 type DiContainer* = tuple
-  rdbQueryService: RdbQueryService
+  queryService: IQueryService
+
+proc newDiContainer():DiContainer =
+  return (
+    queryService: newQueryService().toInterface(),
+  )
+
+let di* = newDiContainer()
