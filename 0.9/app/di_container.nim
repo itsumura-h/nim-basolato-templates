@@ -1,6 +1,6 @@
 # query service
-import http/query_service_interface
-import model/repositories/query_services/query_service
+import repositories/query_services/query_service_interface
+import repositories/query_services/query_service
 
 type DiContainer* = tuple
   queryService: IQueryService

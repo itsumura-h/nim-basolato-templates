@@ -22,7 +22,7 @@ proc newUserRdbRepository*():UserRdbRepository =
   return UserRdbRepository()
 
 proc saveUser*(this:UserRdbRepository, user:User):int =
-  rdb().table("users").insertID(%*{
+  return rdb().table("users").insertID(%*{
     "name": $user.name,
     "email": $user.email,
     "password": user.password.getHashed()
