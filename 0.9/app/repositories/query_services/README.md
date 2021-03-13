@@ -8,8 +8,9 @@ This design is based on [Command–query_separation](https://en.wikipedia.org/wi
 
 ## Controller
 ```nim
+import options
 import basolato/controller
-import ../../model/di_container
+import ../../di_container
 import ../../repositories/query_services/query_service
 
 proc index*(request:Request, params:Params):Future[Response] {.async.} =
@@ -21,26 +22,26 @@ proc index*(request:Request, params:Params):Future[Response] {.async.} =
 proc show*(request:Request, params:Params):Future[Response] {.async.} =
   let id = params.getInt("id")
   let post = di.queryService.getPostByUserId(id)
-  if post.kind == JNull:
+  if not post.isSome:
     raise newException(Error404, "Post not found")
   let auth = await newAuth(request)
-  return render(await showView(auth, post))
+  return render(await showView(auth, post.get))
 ```
 
 ## Query service interface
 ```nim
-import json
+import json, options
 
 type IQueryService* = tuple
   getPostsByUserId: proc(id:int):seq[JsonNode]
-  getPostByUserId: proc(id:int):JsonNode
+  getPostByUserId: proc(id:int):Option[JsonNode]
 ```
 
 ## Query service
 ```nim
-import json
-import ../../http/query_service_interface
+import json, options
 import allographer/query_builder
+import query_service_interface
 
 
 type QueryService* = ref object
@@ -52,14 +53,14 @@ proc newQueryService*():QueryService =
 proc getPostsByUserId(this:QueryService, id:int):seq[JsonNode] =
   return rdb().table("posts").where("user_id", "=", $id).get()
 
-proc getPostByUserId(this:QueryService, id:int):JsonNode =
+proc getPostByUserId(this:QueryService, id:int):Option[JsonNode] =
   return rdb().table("posts").find(id)
 
 
 proc toInterface*(this:QueryService):IQueryService =
   return (
     getPostsByUserId: proc(id:int):seq[JsonNode] = this.getPostsByUserId(id),
-    getPostByUserId: proc(id:int):JsonNode = this.getPostByUserId(id)
+    getPostByUserId: proc(id:int):Option[JsonNode] = this.getPostByUserId(id)
   )
 ```
 
