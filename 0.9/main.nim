@@ -14,6 +14,6 @@ routes.middleware(re"/api/.*", cors_middleware.setCorsHeadersMiddleware)
 routes.get("/", welcome_controller.index)
 
 groups "/api":
-  routes.get("/", welcome_controller.indexApi)
+  routes.get("/index", welcome_controller.indexApi)
 
 serve(routes)
