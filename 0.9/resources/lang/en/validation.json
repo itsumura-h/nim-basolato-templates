@@ -90,6 +90,7 @@
     "array": "The :attribute must contain :size items."
   },
   "starts_with": "The :attribute must be start with one of following :values.",
+  "timestamp": "The :attribute is not a valid timestamp.",
   "url": "The :attribute format is invalid.",
   "uuid": "The :attribute must be a valid UUID."
 }
