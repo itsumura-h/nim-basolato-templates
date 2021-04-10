@@ -10,7 +10,7 @@ lcov.info
 # IDE
 .vscode/*
 
-config.nims
+.env
 *.out
 *.log
 *.log.*
