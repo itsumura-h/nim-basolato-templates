@@ -11,7 +11,7 @@ lcov.info
 .vscode/*
 
 config.nims
-.env.*
+.env
 *.out
 *.log
 *.log.*
