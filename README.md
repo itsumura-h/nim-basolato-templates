@@ -21,6 +21,7 @@ This repository is project boilerplate templates
 │       ├── custom_headers_middleware.nim
 │       └── framework_middleware.nim
 ├── config.nims
+├── database.nim
 ├── main.nim
 ├── migrations
 │   ├── README.md
