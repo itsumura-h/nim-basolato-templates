@@ -1,4 +1,4 @@
-Usase
+Usecase
 ===
 
 Usecase create instance of `Value Object`, `Entity` and `Service` and call these methods to realize bussiness logic.
@@ -20,9 +20,6 @@ You can create domain model by command `ducere make model {domain name}`
 
 ```
 ├── user
-│   ├── repositories
-│   │   ├── user_json_repository.nim
-│   │   └── user_rdb_repository.nim
 │   ├── user_entity.nim
 │   ├── user_repository_interface.nim
 │   └── user_service.nim
@@ -92,10 +89,10 @@ proc newIUserRepository*():IUserRepository =
   return IUserRepository()
 
 proc find*(this:IUserRepository, email:Email):Option[User] =
-  return DiContainer.userRepository().find(email)
+  return di.userRepository().find(email)
 
 proc save*(this:IUserRepository, user:User):int =
-  return DiContainer.userRepository().save(user)
+  return di.userRepository().save(user)
 ```
 
 ## Repository
