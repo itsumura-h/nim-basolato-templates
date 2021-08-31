@@ -1,9 +1,7 @@
 Usecases
 ===
 
-The duty of Usecase is
-- the difinition of bussiness logic.
-- It calls `value object`, `Entity` and `domain service`.
+The `Usecase` is the layer that assembles the business logic by calling the `value object`, `entity`, `domain service`, `repository`, and `query service`.
 
 ## Example
 
