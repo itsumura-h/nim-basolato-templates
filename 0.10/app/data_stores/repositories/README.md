@@ -1,8 +1,7 @@
 Repositories
 ===
 
-Repository is a functions to `insert`, `update` and `delete` database, file or extrnal web API.  
-To fetch data, You should use not `repository` but `query service`.
+Repository is a functions to instantiate and persisted `aggregate` model to access file or extrnal web API.  
 `Repository` should be created in correspondence with the `aggregate`, a top of `Domain Model`.
 
 ```nim
