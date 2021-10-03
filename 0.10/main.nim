@@ -7,7 +7,7 @@ import app/http/controllers/welcome_controller
 import app/http/middlewares/auth_middleware
 import app/http/middlewares/cors_middleware
 
-var routes = newRoutes()
+var routes = Routes.new()
 routes.middleware(re".*", auth_middleware.checkCsrfTokenMiddleware)
 routes.middleware(re"/api/.*", cors_middleware.setCorsHeadersMiddleware)
 
