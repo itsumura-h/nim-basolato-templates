@@ -11,5 +11,4 @@ proc index*(context:Context, params:Params):Future[Response] {.async.} =
   return render(welcomeView(name))
 
 proc indexApi*(context:Context, params:Params):Future[Response] {.async.} =
-  let name = "Basolato " & BasolatoVersion
   return render(%*{"message": "Basolato " & BasolatoVersion})

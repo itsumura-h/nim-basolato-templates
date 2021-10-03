@@ -4,45 +4,49 @@ Basolato Framework templates
 This repository is project boilerplate templates
 
 ```
-├── .gitignore
 ├── app
-│   ├── controllers
-│   │   ├── README.md
-│   │   └── welcome_controller.nim
-│   ├── domain
-│   │   ├── models
-│   │   │   ├── README.md
-│   │   │   ├── di_container.nim
-│   │   │   └── value_objects.nim
-│   │   └── usecases
-│   │       └── README.md
-│   └── middlewares
-│       ├── README.md
-│       ├── custom_headers_middleware.nim
-│       └── framework_middleware.nim
+│   ├── data_stores
+│   │   ├── query_services
+│   │   └── repositories
+│   ├── di_container.nim
+│   ├── http
+│   │   ├── controllers
+│   │   │   └── welcome_controller.nim
+│   │   ├── middlewares
+│   │   │   ├── auth_middleware.nim
+│   │   │   └── cors_middleware.nim
+│   │   └── views
+│   │       ├── errors
+│   │       ├── layouts
+│   │       │   ├── application_view.nim
+│   │       │   └── head_view.nim
+│   │       └── pages
+│   │           └── welcome_view.nim
+│   ├── models
+│   └── usecases
+├── config
+│   └── database.nim
 ├── config.nims
-├── database.nim
+├── database
+│   ├── migrations
+│   │   └── migrate.nim
+│   └── seeders
+│       └── seed.nim
 ├── main.nim
-├── migrations
-│   ├── README.md
-│   ├── migrate.nim
-│   └── migration0001sample.nim
 ├── public
-│   ├── README.md
 │   ├── basolato.svg
 │   ├── css
 │   ├── favicon.ico
 │   └── js
 ├── resources
-│   ├── README.md
-│   ├── layouts
-│   │   ├── application_view.nim
-│   │   └── head_view.nim
-│   └── pages
-│       └── welcome_view.nim
-├── session.db
-├── {project_name}.nimble
+│   └── lang
+│       ├── en
+│       │   └── validation.json
+│       └── ja
+│           └── validation.json
+├── project.nimble
 └── tests
+    └── test_project.nim
 ```
 create manually
 - config.nims
