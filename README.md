@@ -6,7 +6,7 @@ This repository is project boilerplate templates
 ```
 ├── app
 │   ├── data_stores
-│   │   ├── query_services
+│   │   ├── queries
 │   │   └── repositories
 │   ├── di_container.nim
 │   ├── http
