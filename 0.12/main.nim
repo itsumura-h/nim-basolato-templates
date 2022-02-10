@@ -4,7 +4,7 @@ import basolato
 import app/http/controllers/welcome_controller
 # middleware
 import app/http/middlewares/auth_middleware
-import app/http/middlewares/cors_middleware
+import app/http/middlewares/set_headers_middleware
 
 
 let ROUTES = @[
@@ -16,7 +16,7 @@ let ROUTES = @[
     ])
     .middleware(set_headers_middleware.setCorsHeadersMiddleware),
   ])
-  .middleware(set_headers_middleware.setSecureHeadersMiddlware),
+  .middleware(set_headers_middleware.setSecureHeadersMiddlware)
   .middleware(auth_middleware.checkCsrfTokenMiddleware),
 ]
 
