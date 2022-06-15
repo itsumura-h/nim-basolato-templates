@@ -1,10 +1,10 @@
 # framework
 import basolato
-# controller
-import app/http/controllers/welcome_controller
 # middleware
 import app/http/middlewares/auth_middleware
 import app/http/middlewares/set_headers_middleware
+# controller
+import app/http/controllers/welcome_controller
 
 
 let ROUTES = @[
