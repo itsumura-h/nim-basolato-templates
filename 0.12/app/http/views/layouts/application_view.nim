@@ -1,13 +1,14 @@
 import basolato/view
 import head_view
 
-proc applicationView*(title:string, body:string):string =
+
+proc applicationView*(title:string, body:Component):string =
   tmpli html"""
     <!DOCTYPE html>
     <html lang="en">
-      $<headView(title)>
+      $(headView(title))
     <body>
-      $<body>
+      $(body)
     </body>
     </html>
   """
