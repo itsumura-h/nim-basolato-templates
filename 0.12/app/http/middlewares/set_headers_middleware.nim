@@ -13,10 +13,13 @@ proc setCorsHeadersMiddleware*(c:Context, p:Params):Future[Response] {.async.} =
   ]
 
   let allowedHeaders = [
-    "content-type",
+    "Access-Control-Allow-Origin",
+    "Content-Type",
+    "*",
   ]
 
   let headers = {
+    "Origin": @[$true],
     "Cache-Control": @["no-cache"],
     "Access-Control-Allow-Credentials": @[$true],
     "Access-Control-Allow-Origin": @["http://localhost:3000"],
@@ -25,6 +28,7 @@ proc setCorsHeadersMiddleware*(c:Context, p:Params):Future[Response] {.async.} =
     "Access-Control-Expose-Headers": @allowedHeaders,
   }.newHttpHeaders()
   return next(status=Http204, headers=headers)
+
 
 proc setSecureHeadersMiddlware*(c:Context, p:Params):Future[Response] {.async.} =
   let headers = {
