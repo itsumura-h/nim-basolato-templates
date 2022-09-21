@@ -1,6 +1,5 @@
 import
   std/asyncdispatch,
-  std/httpcore,
   basolato/middleware
 
 
