@@ -1,7 +1,6 @@
-import
-  std/asyncdispatch,
-  std/httpcore,
-  basolato/middleware
+import std/asyncdispatch
+import std/httpcore
+import basolato/middleware
 
 
 proc setCorsHeadersMiddleware*(c:Context, p:Params):Future[Response] {.async.} =

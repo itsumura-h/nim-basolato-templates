@@ -1,5 +1,7 @@
-import os, strutils
+import std/os
+import std/strutils
 import allographer/connection
+
 
 let rdb* = dbopen(
   Sqlite3, # SQLite3 or MySQL or MariaDB or PostgreSQL
