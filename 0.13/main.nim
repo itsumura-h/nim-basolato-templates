@@ -1,13 +1,13 @@
 # framework
 import basolato
 # middleware
-import app/http/middlewares/auth_middleware
-import app/http/middlewares/set_headers_middleware
+import ./app/http/middlewares/auth_middleware
+import ./app/http/middlewares/set_headers_middleware
 # controller
-import app/http/controllers/welcome_controller
+import ./app/http/controllers/welcome_controller
 
 
-let ROUTES = @[
+let routes = @[
   Route.group("", @[
     Route.get("/", welcome_controller.index),
 
@@ -20,4 +20,4 @@ let ROUTES = @[
   .middleware(auth_middleware.checkCsrfTokenMiddleware),
 ]
 
-serve(ROUTES)
+serve(routes)

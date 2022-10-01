@@ -1,5 +1,5 @@
 import basolato/view
-import head_view
+import ./head_view
 
 
 proc applicationView*(title:string, body:Component):Component =

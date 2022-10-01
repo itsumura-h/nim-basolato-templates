@@ -1,10 +1,9 @@
-import
-  std/json,
+import std/json
   # framework
-  basolato/controller,
-  basolato/core/base,
+import basolato/controller
+import basolato/core/base
   # view
-  ../views/pages/welcome_view
+import ../views/pages/welcome_view
 
 
 proc index*(context:Context, params:Params):Future[Response] {.async.} =

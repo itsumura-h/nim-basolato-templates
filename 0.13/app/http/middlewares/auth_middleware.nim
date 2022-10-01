@@ -1,6 +1,5 @@
-import
-  std/asyncdispatch,
-  basolato/middleware
+import std/asyncdispatch
+import basolato/middleware
 
 
 proc checkCsrfTokenMiddleware*(c:Context, p:Params):Future[Response] {.async.} =
