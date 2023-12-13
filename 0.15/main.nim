@@ -10,7 +10,7 @@ import ./app/http/controllers/welcome_controller
 
 let routes = @[
   Route.group("", @[
-    Route.gorge("", @[
+    Route.group("", @[
       Route.get("/", welcome_controller.index),
     ])
     .middleware(session_middleware.sessionFromCookie)
