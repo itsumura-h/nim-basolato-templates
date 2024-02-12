@@ -10,7 +10,8 @@ import basolato/core/security/session
 proc sessionFromCookie*(c:Context, p:Params):Future[Response] {.async.} =
   let sessionId = Cookies.new(c.request).get("session_id")
   let sessionOpt = Session.new(sessionId).await
-  sessionOpt.updateNonce().await
+  if c.request.httpMethod == HttpGet:
+    sessionOpt.updateNonce().await
   c.setSession(sessionOpt.get())
   let newSessionId = sessionOpt.getToken().await
   var cookies = Cookies.new(c.request)

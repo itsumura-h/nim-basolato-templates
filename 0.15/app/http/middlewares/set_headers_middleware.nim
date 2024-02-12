@@ -4,6 +4,9 @@ import basolato/middleware
 
 
 proc setCorsHeaders*(c:Context, p:Params):Future[Response] {.async.} =
+  if c.request.httpMethod != HttpOptions:
+    return next()
+
   let allowedMethods = [
     "OPTIONS",
     "GET",
@@ -31,6 +34,9 @@ proc setCorsHeaders*(c:Context, p:Params):Future[Response] {.async.} =
 
 
 proc setSecureHeaders*(c:Context, p:Params):Future[Response] {.async.} =
+  if c.request.httpMethod != HttpOptions:
+    return next()
+
   let headers = {
     "Strict-Transport-Security": @["max-age=63072000", "includeSubdomains"],
     "X-Frame-Options": @["SAMEORIGIN"],
