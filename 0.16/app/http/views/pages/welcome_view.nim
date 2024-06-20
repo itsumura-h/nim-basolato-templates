@@ -79,7 +79,6 @@ proc impl(name:string):Component =
   """)
 
   tmpl"""
-    $(style)
     <link rel="stylesheet" href="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/dracula.min.css">
     <script src="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
     <article>
@@ -114,8 +113,9 @@ proc impl(name:string):Component =
         </div>
       </section>
     </article>
+    $(style)
   """
 
-proc welcomeView*(name:string):string =
+proc welcomeView*(name:string):Component =
   let title = "Welcome Basolato"
   return $applicationView(title, impl(name))
