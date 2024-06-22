@@ -14,5 +14,5 @@ proc sessionFromCookie*(c:Context, p:Params):Future[Response] {.async.} =
   c.setSession(sessionOpt.get())
   let newSessionId = sessionOpt.getToken().await
   var cookies = Cookies.new(c.request)
-  cookies.set("session_id", newSessionId, expire=timeForward(settings.settings.sessionTime, Minutes))
+  cookies.set("session_id", newSessionId, expire=timeForward(SESSION_TIME, Minutes))
   return next().setCookie(cookies)
