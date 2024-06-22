@@ -118,4 +118,4 @@ proc impl(name:string):Component =
 
 proc welcomeView*(name:string):Component =
   let title = "Welcome Basolato"
-  return $applicationView(title, impl(name))
+  return applicationView(title, impl(name))
